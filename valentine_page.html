@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Valentine Page</title>
+    <style>
+        body {
+            background: #ff7f50;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #fff;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        .heart-eyes {
+            font-size: 80px;
+            color: #fff;
+            animation: heart-eyes-bounce 1.5s infinite alternate;
+            margin: 20px auto;
+        }
+
+        @keyframes heart-eyes-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            color: red;
+            animation: float-hearts 5s infinite;
+        }
+
+        @keyframes float-hearts {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Heart-eyes emoji bouncing -->
+    <div class="heart-eyes">😍</div>
+    <h1>I knew that you would say yes cutie! 💕</h1>
+
+    <script>
+        // Create hearts floating around
+        for (let i = 0; i < 10; i++) {
+            let heart = document.createElement('span');
+            heart.classList.add('heart');
+            heart.innerText = '❤️';
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.animationDuration = `${Math.random() * 4 + 3}s`;
+            document.body.appendChild(heart);
+        }
+    </script>
+</body>
+</html>
