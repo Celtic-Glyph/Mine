@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #ffadad, #ff65a3, #ff7f50, #ff1493);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .wink {
+            font-size: 50px;
+            color: #ff69b4; /* Pink */
+            margin-left: 10px;
+            animation: wink-animation 1s ease-in-out infinite;
+        }
+
+        @keyframes wink-animation {
+            0% { opacity: 1; transform: rotate(0deg); }
+            50% { opacity: 0.5; transform: rotate(15deg); }
+            100% { opacity: 1; transform: rotate(0deg); }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff69b4; /* Pink */
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff1493; /* Darker pink */
+        }
+
+        /* Custom modal styles */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 18px;
+            border-radius: 25px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .modal-btn:hover {
+            background-color: #ff1493;
+        }
+
+        .modal-btn-grow {
+            transform: scale(1.2); /* Enlarges the button when clicked */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey there cutie, can I ask you a question?<span class="wink">😉</span></h1>
+        <button id="go-ahead-btn" class="btn">Go ahead</button>
+    </div>
+
+    <!-- Custom modal -->
+    <div id="modal">
+        <div class="modal-content">
+            <h2>Will you be my Valentine? 💕</h2>
+            <button class="modal-btn" id="modal-yes">Yes</button>
+            <button class="modal-btn" id="modal-no">No</button>
+        </div>
+    </div>
+
+    <script>
+        // Show modal when the user clicks "Go ahead"
+        document.getElementById('go-ahead-btn').addEventListener('click', function() {
+            document.getElementById('modal').style.display = 'flex';
+        });
+
+        // When "Yes" is clicked, redirect to the next page
+        document.getElementById('modal-yes').addEventListener('click', function() {
+            window.location.href = 'valentine_page.html';  // Redirect to the next page
+        });
+
+        // When "No" is clicked, increase the size of the "Yes" button
+        document.getElementById('modal-no').addEventListener('click', function() {
+            let yesButton = document.getElementById('modal-yes');
+            yesButton.classList.add('modal-btn-grow'); // Add class to grow the "Yes" button
+            // Modal does NOT close here
+        });
+    </script>
+</body>
+</html>
